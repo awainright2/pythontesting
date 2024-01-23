@@ -16,6 +16,6 @@ def handler(ctx, data: io.BytesIO=None):
     logging.getLogger().info("Inside Python Hello World function")
     return response.Response(
         ctx, response_data=json.dumps(
-            {"Greeting": "Hey there {0}".format(name)}),
+            {"Message": "Hey there are you: {0}".format(name)}),
         headers={"Content-Type": "application/json"}
     )
