@@ -7,4 +7,5 @@ run_image: fnproject/python:3.11
 entrypoint: /python/bin/fdk /function/func.py handler
 memory: 256
 build:
-  dockerfile: /path/to/your/custom/Dockerfile
+  dockerfile: /home/wainriac/oci-ide-plugins/faas-artifacts/ocid1.fnapp.oc1.phx.aaaaaaaam4ddcfhjvmx6pw2wzhewtxfknv46fgcouxpzrioixntoc3hk22lq/githubtest/pythontesting/Dockerfile
+
