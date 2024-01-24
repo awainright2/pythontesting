@@ -39,4 +39,4 @@ def sqlConnection():
     except pyodbc.Error as ex:
         return "An error occurred:", ex
         # Handle the error as per your application's requirements
-     return "Connection successful"
+    return "Connection successful"
