@@ -1,4 +1,5 @@
 import io
+#import os
 import json
 import logging
 logging.getLogger().info('Trying to import pyodbc')
@@ -16,11 +17,11 @@ def handler(ctx, data: io.BytesIO=None):
         logging.getLogger().info('error parsing json payload: ' + str(ex))
 
     logging.getLogger().info("Inside Python Hello World function")
-    #isConnected = sqlConnection()
+    isConnected = sqlConnection()
     return response.Response(
         ctx, response_data=json.dumps(
-            #{"Message": "{0}".format(isConnected)}),
-            {"Message": "test"}),
+            {"Message": "{0}".format(isConnected)}),
+            #{"Message": "test"}),
         headers={"Content-Type": "application/json"}
     )
 
@@ -29,10 +30,14 @@ def sqlConnection():
     database = 'Apps'
     username = 'wainriac-lsa'
     password = 'mYaPP1ei$GolDen'
+    logging.info('Driver info')
+    logging.getLogger().info(pyodbc.drivers())
+    logging.info('Datasources')
+    logging.getLogger().info(pyodbc.dataSources())
 
     try:
         logging.info('Attempting database connection...')
-        conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+server+',1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+        conn = pyodbc.connect('DRIVER={/usr/lib/x86_64-linux-gnu/libodbc.so.2};SERVER='+server+',1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         logging.info('Database connection successful')
         # Additional code for executing SQL statements or working with the database goes here
         # For example: cursor = conn.cursor()
