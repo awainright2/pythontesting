@@ -37,6 +37,6 @@ def sqlConnection():
         #              print(rows)
         conn.close()  # Close the connection when done
     except pyodbc.Error as ex:
-        return "An error occurred:", ex
+        return "An error occurred: " + str(ex)
         # Handle the error as per your application's requirements
     return "Connection successful"
