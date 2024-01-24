@@ -1,12 +1,12 @@
 import io
 import json
 import logging
-import pyodbc
+#import pyodbc
 
 from fdk import response
 
-logging.info('Testing Logger')
 def handler(ctx, data: io.BytesIO=None):
+    logging.getLogger().info('Testing')
     name = "World"
     try:
         body = json.loads(data.getvalue())
@@ -15,10 +15,11 @@ def handler(ctx, data: io.BytesIO=None):
         logging.getLogger().info('error parsing json payload: ' + str(ex))
 
     logging.getLogger().info("Inside Python Hello World function")
-    isConnected = sqlConnection()
+    #isConnected = sqlConnection()
     return response.Response(
         ctx, response_data=json.dumps(
-            {"Message": "{0}".format(isConnected)}),
+            #{"Message": "{0}".format(isConnected)}),
+            {"Message": "test"}),
         headers={"Content-Type": "application/json"}
     )
 
