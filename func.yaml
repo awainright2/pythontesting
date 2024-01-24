@@ -1,8 +1,10 @@
 schema_version: 20180708
 name: githubtest
-version: 0.0.18
+version: 0.0.21
 runtime: python
 build_image: fnproject/python:3.11-dev
 run_image: fnproject/python:3.11
 entrypoint: /python/bin/fdk /function/func.py handler
 memory: 256
+build:
+  dockerfile: /path/to/your/custom/Dockerfile

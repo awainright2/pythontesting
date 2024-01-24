@@ -1,7 +1,8 @@
 import io
 import json
 import logging
-#import pyodbc
+logging.getLogger().info('Trying to import pyodbc')
+import pyodbc
 
 from fdk import response
 
