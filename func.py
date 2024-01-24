@@ -5,7 +5,7 @@ import pyodbc
 
 from fdk import response
 
-
+logging.info('Testing Logger')
 def handler(ctx, data: io.BytesIO=None):
     name = "World"
     try:
