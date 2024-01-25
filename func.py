@@ -26,7 +26,7 @@ def handler(ctx, data: io.BytesIO=None):
     )
 
 def sqlConnection():
-    server = '10.23.9.206'
+    server = 'GEODBDEV'
     database = 'Apps'
     username = 'wainriac-lsa'
     password = 'mYaPP1ei$GolDen'
@@ -37,7 +37,12 @@ def sqlConnection():
 
     try:
         logging.info('Attempting database connection...')
-        conn = pyodbc.connect('DRIVER={/usr/lib/x86_64-linux-gnu/libodbc.so.2};SERVER='+server+',1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+        #drivers = pyodbc.drivers()
+        #logging.info('Drivers' + drivers)
+        
+        conn = pyodbc.connect(
+    'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+password, autocommit=True)
+        #conn = pyodbc.connect('DRIVER={FreeTDS};SERVER='+server+',1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         logging.info('Database connection successful')
         # Additional code for executing SQL statements or working with the database goes here
         # For example: cursor = conn.cursor()
