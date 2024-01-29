@@ -1,4 +1,4 @@
 fdk
 
-pyodbc==5.0.1
+pyodbc==4.0.39
 

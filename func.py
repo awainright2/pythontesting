@@ -26,22 +26,17 @@ def handler(ctx, data: io.BytesIO=None):
     )
 
 def sqlConnection():
-    server = 'GEODBDEV'
+    server = 'GIS'
     database = 'Apps'
-    username = 'wainriac-lsa'
-    password = 'mYaPP1ei$GolDen'
-    logging.info('Driver info')
-    logging.getLogger().info(pyodbc.drivers())
-    logging.info('Datasources')
-    logging.getLogger().info(pyodbc.dataSources())
-
+    username = 'geotabintegration'
+    password = '#,XERnpB+qXc0Y]$>[U^%C$wU'
     try:
         logging.info('Attempting database connection...')
         #drivers = pyodbc.drivers()
-        #logging.info('Drivers' + drivers)
+        #logging.info('Drivers: ' + ', '.join(drivers))
         
         conn = pyodbc.connect(
-    'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+password, autocommit=True)
+    'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+'DATABASE='+database+';UID='+username+';PWD='+password, timeout=30)
         #conn = pyodbc.connect('DRIVER={FreeTDS};SERVER='+server+',1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         logging.info('Database connection successful')
         # Additional code for executing SQL statements or working with the database goes here
